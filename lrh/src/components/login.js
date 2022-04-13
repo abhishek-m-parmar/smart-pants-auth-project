@@ -1,10 +1,11 @@
 import React, {useState} from "react"
 import axios from "axios"
-// import { useNavigate } from "react"
+import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 const Login = ({ setLoginUser}) => {
 
-    // const history = useNavigate()
+    const history = useNavigate()
 
     const [ user, setUser] = useState({
         email:"",
@@ -24,7 +25,7 @@ const Login = ({ setLoginUser}) => {
         .then(res => {
             alert(res.data.message)
             setLoginUser(res.data.user)
-            // history.push("/")
+            history("/")
         })
     }
 
@@ -35,7 +36,7 @@ const Login = ({ setLoginUser}) => {
             <input type="password" name="password" value={user.password} onChange={handleChange}  placeholder="Enter your Password" ></input>
             <div className="button" onClick={login}>Login</div>
             <div>or</div>
-            <div className="button" >Register</div>
+            <div className="button" ><Link to = "/register">Register</Link></div>
         </div>
     )
 }

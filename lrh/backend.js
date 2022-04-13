@@ -6,7 +6,7 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded())
 app.use(cors())
-
+const port = 3000
 mongoose.connect("mongodb://localhost:27017/lrh", {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -61,6 +61,6 @@ app.post("/register", (req, res)=> {
     
 }) 
 
-app.listen(3000,() => {
-    console.log("BE started at port 3000")
+app.listen(port,() => {
+    console.log(`BE started at port ${port}`)
 })

@@ -9,26 +9,17 @@ function App() {
 
   const [ user, setLoginUser] = useState({})
   return (
-    <div className="App">
-      {/* <Router>
+    
+      <Router>
         <Routes>
-          <Route exact path="/">
-            {
+          <Route exact path="/" element = {
               user && user._id ? <Homepage setLoginUser={setLoginUser} /> : <Login setLoginUser={setLoginUser}/>
-            }
-          </Route>
-          <Route path="/login">
-            <Login setLoginUser={setLoginUser}/>
-          </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
+            }/>
+          <Route path="/login" element = {<Login setLoginUser={setLoginUser}/>} />
+            
+          <Route path="/register" element = {<Register />} />
         </Routes>
-      </Router> */}
-      {/* <Register/> */}
-      {/* <Login/> */}
-      <Homepage/>
-    </div>
+      </Router>
   );
 }
 
